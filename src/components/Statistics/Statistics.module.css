@@ -1,0 +1,12 @@
+.itemStatics {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+.textItemStatics {
+  text-transform: capitalize;
+  margin-right: 30px;
+}
