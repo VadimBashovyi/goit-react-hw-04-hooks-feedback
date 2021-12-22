@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types'
 
 export default function Notification({ message }) {
-  return <p>{message}</p>;
+  return <h2>{message}</h2>
 }
 
 Notification.propTypes = {
   message: PropTypes.string.isRequired,
-};
+}

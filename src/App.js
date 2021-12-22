@@ -12,9 +12,10 @@ function App() {
   const options = { good, neutral, bad }
 
   const onLeaveFeedback = (e) => {
-    const sumFeedback = e.target.textContent
+    // console.log(e.target)
+    // const sumFeedback = e.target
 
-    switch (sumFeedback) {
+    switch (e) {
       case 'good':
         setGood((prevState) => prevState + 1)
         break
@@ -40,22 +41,26 @@ function App() {
   const sumTotal = good + neutral + bad
 
   return (
-    <>
-      <Section title={'Please leave feedback'}>
+    <div>
+      <Section title="Please leave Feedback">
         <FeedbackOptions options={options} onLeaveFeedback={onLeaveFeedback} />
       </Section>
-      <Section title={'Statistics'}>
-        {sumTotal > 0 ? (
-          <Statistics
-            arrFeedback={options}
-            total={countTotalFeedback()}
-            positivePercentage={positivePercentage()}
-          />
+      <div>
+        {sumTotal ? (
+          <Section title="Statistic">
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={countTotalFeedback()}
+              positivePercentage={positivePercentage()}
+            />
+          </Section>
         ) : (
-          <Notification message="There is no feedback" />
+          <Notification message="No feedback" />
         )}
-      </Section>
-    </>
+      </div>
+    </div>
   )
 }
 

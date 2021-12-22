@@ -1,14 +1,11 @@
-.list {
+.btn__section {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.item:not(:last-child) {
-  margin-right: 30px;
-}
-
 .btn {
+  margin-left: 10px;
   display: block;
   width: 80px;
   text-transform: capitalize;
@@ -25,4 +22,8 @@
 .btn:hover,
 .btn:focus {
   background-color: rgb(145, 21, 161);
+}
+.list {
+  list-style-type: none;
+  align-items: center;
 }

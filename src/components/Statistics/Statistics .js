@@ -3,37 +3,39 @@ import React from 'react'
 
 import styles from './Statistics.module.css'
 
-export default function Statistics({ arrFeedback, total, positivePercentage }) {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
-    <>
-      <ul>
-        {Object.keys(arrFeedback).map((elem) => (
-          <li key={elem} className={styles.itemStatics}>
-            <p className={styles.textItemStatics}>{elem}:</p>
-            <span>{arrFeedback[elem]}</span>
-          </li>
-        ))}
-      </ul>
-      <ul>
-        <li className={styles.itemStatics}>
-          <p className={styles.textItemStatics}>Total:</p>
-          <span>{total}</span>
+    <div className={styles.btn__container}>
+      <ul className={styles.list}>
+        <li className={styles.item}>
+          <span className={styles.text}>Good:</span> {good}
         </li>
-        <li className={styles.itemStatics}>
-          <p className={styles.textItemStatics}>Positive feedback:</p>
-          <span>{positivePercentage}</span>
+        <li className={styles.item}>
+          <span className={styles.text}>Neutral:</span>
+          {neutral}
+        </li>
+        <li className={styles.item}>
+          <span className={styles.text}>Bad:</span>
+          {bad}
+        </li>
+        <li className={styles.item}>
+          <span className={styles.text}>Positive Feedback:</span>
+          {positivePercentage}
+        </li>
+        <li className={styles.item}>
+          <span className={styles.text}>Total:</span>
+          {total}
         </li>
       </ul>
-    </>
+    </div>
   )
 }
 
 Statistics.propTypes = {
-  arrFeedback: PropTypes.shape({
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-  }),
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
   positivePercentage: PropTypes.string.isRequired,
 }
+export default Statistics
